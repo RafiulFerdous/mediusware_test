@@ -1,7 +1,10 @@
+from django.contrib import admin
 from django.urls import path
-from . import views
+from product.views import ProductViewset
 
 urlpatterns = [
-    # Other URL patterns for your Django views
-    path('/', views.react_app, name='react_app'),
-]
+    path('product', ProductViewset.as_view({
+        'get': 'list',
+        'post': 'create',
+        'post': 'retrieve',
+    }))]
